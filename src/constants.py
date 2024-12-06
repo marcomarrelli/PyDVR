@@ -1,14 +1,14 @@
 from typing import Final
 
 
-class Network:
+class Network(object):
     MIN_NODES: Final[int] = int(3)
     ''' Minimum number of nodes in the network '''
 
     MAX_NODES: Final[int] = int(7)
     ''' Maximum Number of Nodes in the Network '''
 
-class GUI:
+class GUI(object):
     APPLICATION_WIDTH: Final[float] = 1000
     ''' Window Width '''
 
