@@ -129,7 +129,7 @@ class NetworkGUI:
         """Create and draw connections between nodes ensuring all nodes are connected"""
 
         self.clear_table()
-        self.canvas.delete("node_label", "line", "cost", "cost_bg")
+        self.canvas.delete("line", "cost", "cost_bg")
 
         adjacency_matrix = [[False] * self.routers for _ in range(self.routers)]
 
@@ -201,8 +201,7 @@ class NetworkGUI:
             tags = "cost_bg"
         )
 
-        # Crea il testo del costo
-        self.canvas.create_text(mx, my, text=str(distance.cost), fill="red", tags="cost")
+        self.canvas.create_text(mx, my, text = str(distance.cost), fill = "red", tags = "cost")
 
         self.canvas.tag_raise("cost_bg", "line")
         self.canvas.tag_raise("cost", "cost_bg")
@@ -220,14 +219,12 @@ class NetworkGUI:
             self.initialize_network()
     
     def run_algorithm(self):
-        # Esegui l'algoritmo di routing
-
         while True:
             changes = False
             tables = [router.route_table for router in self.router_list]
             
             for router in self.router_list:
-                changes |= router.update_routes(tables)
+                changes = router.update_routes(tables)
             
             if not changes:
                 break
