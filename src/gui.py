@@ -1,8 +1,8 @@
 '''
     GUI for the Distance Vector Routing Simulator
 
-    @author Marco Marrelli
-    @date 05/12/2024
+    @author: Marco Marrelli
+    @date: 05/12/2024
 '''
 
 from typing import List
@@ -13,8 +13,8 @@ import random
 from node import Node
 from router import Router
 from distance import Distance
-
 import constants as Constants
+from scripts.utils import Utils
 
 class NetworkGUI:
     ''' GUI for the DVR Simulator '''
@@ -31,16 +31,19 @@ class NetworkGUI:
         self.router_list: List[Router] = []
         ''' List of Routers in the Network '''
 
+        self.node_positions: List = []
+        ''' List of Node Positions '''
+
         self.window: tk.Frame = tk.Frame(self.root, width = Constants.GUI.APPLICATION_WIDTH, height = Constants.GUI.APPLICATION_HEIGHT, background = Constants.GUI.APPLICATION_BACKGROUND_COLOR)
         ''' Main Frame '''
 
         self.control_frame: tk.Frame = tk.Frame(self.window, background = Constants.GUI.APPLICATION_BACKGROUND_COLOR)
         ''' Frame Used for Controls (Buttons) '''
 
-        self.canvas: tk.Canvas = tk.Canvas(self.window, width = Constants.GUI.APPLICATION_WIDTH*0.65, height = Constants.GUI.APPLICATION_HEIGHT, background = Constants.GUI.GRAPH_BACKGROUND_COLOR)
+        self.canvas: tk.Canvas = tk.Canvas(self.window, width = Utils.perc(Constants.GUI.APPLICATION_WIDTH, 65), height = Constants.GUI.APPLICATION_HEIGHT, background = Constants.GUI.GRAPH_BACKGROUND_COLOR)
         ''' Canva Used for Drawing the Network '''
 
-        self.table_container: tk.Frame = tk.Frame(self.window, width = Constants.GUI.APPLICATION_WIDTH*0.35, height = Constants.GUI.APPLICATION_HEIGHT)
+        self.table_container: tk.Frame = tk.Frame(self.window, width = Utils.perc(Constants.GUI.APPLICATION_WIDTH, 35), height = Constants.GUI.APPLICATION_HEIGHT)
         ''' Frame Used for the RouteTable '''
 
         self.scrollbar: tk.Scrollbar = tk.Scrollbar(self.table_container)
@@ -94,17 +97,17 @@ class NetworkGUI:
         self.root.mainloop()
 
     def initialize_network(self):
-        """Initialize the network by creating routers and drawing nodes"""
-        # Clear the Canvas and the Router List
+        ''' Initialize the Network Creating Routers and Their Connections '''
+        
+        # Clear Canvas, Router List
         self.router_list.clear()
         self.canvas.delete("all")
+        self.node_positions = []
+        ''' List of Node Positions '''
 
-        center_x = Constants.GUI.APPLICATION_WIDTH*0.325
-        center_y = Constants.GUI.APPLICATION_HEIGHT*0.5
-        radius = min(Constants.GUI.APPLICATION_WIDTH*0.25, Constants.GUI.APPLICATION_HEIGHT*0.4)
-
-        # Lista delle coordinate dei nodi per disegnare le linee dopo
-        self.node_positions = []  # Rendi node_positions un attributo della classe
+        center_x = Utils.perc(Constants.GUI.APPLICATION_WIDTH, 32.5)
+        center_y = Utils.perc(Constants.GUI.APPLICATION_HEIGHT, 50)
+        radius = min(Utils.perc(Constants.GUI.APPLICATION_WIDTH, 25), Utils.perc(Constants.GUI.APPLICATION_HEIGHT, 40))
 
         # Crea tutti i router e disegna i nodi
         for i in range(self.routers):
