@@ -37,7 +37,18 @@ L'output dell'algoritmo (la tabella di routing di ogni router) può essere consu
 \newpage
 \section{Struttura della Codebase}
 \subsection{Componenti per la Grafica}
+\begin{itemize}
+    \item \textbf{gui.py}: Implementa l'interfaccia grafica per il simulatore DVR.
+    \item \textbf{constants.py}: Contiene le costanti utilizzate nell'applicazione, inclusi i parametri grafici.
+    \item \textbf{utils.py}: Fornisce funzioni di utilità per calcoli nella grafica (percentuale di un numero).
+\end{itemize}
 \subsection{Componenti per la Logica}
+\begin{itemize}
+    \item \textbf{router.py}: Implementa la logica del router e l'algoritmo di Distance Vector Routing.
+    \item \textbf{node.py}: Definisce la rappresentazione di un nodo nella rete.
+    \item \textbf{distance.py}: Gestisce le distanze tra i nodi e le operazioni su di esse.
+    \item \textbf{routing\_table.py}: Gestisce le tabelle di routing per i router.
+\end{itemize}
 
 \newpage
 \section{Implementazione della Grafica}
@@ -69,7 +80,7 @@ Questo è il codice (semplificato) dell'algoritmo implementato (visualizzabile n
 
 \begin{figure}[H] % Modifica l'opzione qui
     \centering
-    \includegraphics[width=0.9\textwidth]{pseudocode.PNG}
+    \includegraphics[width=\textwidth]{pseudocode.PNG}
     \caption{router.py::update\_routes() : Pseudocode dell'algoritmo DVR}
     \label{fig:pseudocode.PNG}
 \end{figure}
