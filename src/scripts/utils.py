@@ -1,11 +1,13 @@
 class Utils:
-    @staticmethod
-    def perc(num, perc) -> float:
-        '''
-            Calculate Percentage of a Number
+    '''
+        Utility Class
 
-            @param num: Input Number
-            @param perc: Percentage of num
-        '''
+        @author: Marco Marrelli
+        @date: 05/12/2024
+    '''
+
+    @staticmethod
+    def perc(num: float, perc: float) -> float:
+        ''' Calculate Percentage of a Number '''
 
         return float(num)*(float(perc)/100.0)

@@ -1,5 +1,11 @@
 from typing import Final
 
+'''
+    Constants for the Application
+    
+    @author: Marco Marrelli
+    @date: 06/12/2024
+'''
 
 class Network(object):
     MIN_NODES: Final[int] = int(3)
@@ -7,6 +13,12 @@ class Network(object):
 
     MAX_NODES: Final[int] = int(7)
     ''' Maximum Number of Nodes in the Network '''
+
+    MIN_DISTANCE: Final[float] = float(1)
+    ''' Minimum Distance Cost between Nodes '''
+
+    MAX_DISTANCE: Final[float] = float(10)
+    ''' Maximum Distance Cost between Nodes '''
 
 class GUI(object):
     APPLICATION_WIDTH: Final[float] = 1000
@@ -38,6 +50,9 @@ class GUI(object):
 
     START_BUTTON_TEXT: Final[str] = str("Start Simulation")
     ''' Start Simulation Button Text '''
+
+    INITIAL_ROUTER_TABLE_TEXT: Final[str] = str("Press 'Start Simulation' to see routes")
+    ''' Initial Router Table Text - Before 'Start Simulation' '''
 
     ROUTER_COLOR: Final[str] = str("#FFD700")
     ''' Router Color (in the Graph) '''
