@@ -53,7 +53,25 @@ L'output dell'algoritmo (la tabella di routing di ogni router) può essere consu
 \newpage
 \section{Implementazione della Grafica}
 \subsection{Visualizzazione Grafica della Rete}
+La visualizzazione grafica della rete è gestita dalla classe \texttt{NetworkGUI} (nel file \texttt{gui.py}). Questa classe utilizza la libreria Tkinter per creare una finestra, con all'interno un canvas dove vengono disegnati i nodi (router) e le connessioni tra di essi.
+
+\begin{itemize}
+    \item \textbf{Creazione della Finestra Principale}: La finestra principale viene creata e configurata con un titolo e dimensioni specifiche.
+    \item \textbf{Canvas per il Disegno della Rete}: Un canvas è utilizzato per disegnare i nodi e le connessioni. I nodi sono rappresentati come cerchi dorati e le connessioni come linee.
+    \item \textbf{Visualizzazione delle Connessioni}: Le connessioni tra i nodi sono disegnate come linee sul canvas. I costi delle connessioni sono visualizzati come rettangoli bianchi con il testo del costo al centro della linea di connessione.
+\end{itemize}
+
 \subsection{Manipolazione della Rete}
+La manipolazione della rete è gestita attraverso vari pulsanti e funzioni che permettono di aggiungere, rimuovere e randomizzare i nodi e le connessioni.
+
+\begin{itemize}
+    \item \textbf{Aggiunta di Nodi}: Il pulsante "Add Router" permette di aggiungere un nuovo nodo alla rete. La funzione \texttt{add\_node()} gestisce l'aggiunta del nodo e la sua visualizzazione sul canvas.
+    \item \textbf{Rimozione di Nodi}: Il pulsante "Remove Router" permette di rimuovere un nodo esistente dalla rete. La funzione \texttt{remove\_node()} gestisce la rimozione del nodo e l'aggiornamento del canvas.
+    \item \textbf{Randomizzazione delle Connessioni}: Il pulsante "Randomize" permette di randomizzare le connessioni tra i nodi. \newline
+    La funzione \texttt{create\_network\_connections()} gestisce la creazione e visualizzazione delle connessioni randomiche.
+    \item \textbf{Avvio della Simulazione}: Il pulsante "Start Simulation" avvia l'algoritmo di Distance Vector Routing. \newline
+    La funzione \texttt{run\_algorithm()} gestisce l'esecuzione dell'algoritmo e l'aggiornamento delle tabelle di routing.
+\end{itemize}
 
 \newpage
 \section{Parte Logica}
